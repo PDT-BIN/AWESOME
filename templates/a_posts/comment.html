@@ -51,18 +51,19 @@
 					<path d="M24 22h-24l12-20z" />
 				</svg>
 			</div>
-			{% endif %} {% if comment.replies.count %} Replies
+			{% endif %}
+			{% if comment.replies.count %} Replies
 			<span
 				id="repliescount-{{ comment.pk }}"
 				class="font-light text-gray-500 ml-1"
 				>{{ comment.replies.count }}</span
 			>
-			{% else %} {% if user.is_authenticated %} Add reply {% endif %} {%
-			endif %}
+			{% else %} 
+			{% if user.is_authenticated %} Add reply {% endif %}
+			{% endif %}
 		</a>
 		<div class="flex items-center gap-4 [&>a:hover]:underline">
-			{% include "snippets/likes_comment.html" %} {% if user ==
-			comment.author %}
+			{% include "snippets/likes_comment.html" %} {% if user == comment.author %}
 			<a href="{% url 'comment-delete' comment.pk %}">Delete</a>
 			{% endif %}
 		</div>
@@ -72,8 +73,10 @@
 			x-cloak
 			class="basis-full mt-3 pl-8 grid grid-cols-1"
 		>
-			{% for reply in comment.replies.all %} {% include
-			"a_posts/reply.html" %} {% endfor %} {% if user.is_authenticated %}
+			{% for reply in comment.replies.all %}
+			{% include "a_posts/reply.html" %}
+			{% endfor %}
+			{% if user.is_authenticated %}
 			<form
 				class="replyform flex justify-between"
 				autocomplete="off"
