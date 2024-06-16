@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "a_users.apps.AUsersConfig",
     "a_inbox.apps.AInboxConfig",
     "a_features.apps.AFeaturesConfig",
+    "a_landingpages.apps.ALandingpagesConfig",
     # ALL-AUTH.
     "django.contrib.sites",
     "allauth",
@@ -79,6 +80,8 @@ MIDDLEWARE = [
     # 3-PARTY.
     "allauth.account.middleware.AccountMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
+    # OWN MIDDLEWARE.
+    "a_landingpages.middleware.landingpage_middleware",
 ]
 
 ROOT_URLCONF = "a_core.urls"
