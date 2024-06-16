@@ -21,9 +21,9 @@ ENCRYPT_KEY = env("ENCRYPT_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == "production":
-    DEBUG = True
-else:
     DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
