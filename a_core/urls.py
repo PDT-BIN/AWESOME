@@ -10,7 +10,6 @@ urlpatterns = [
     path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
     path("theboss/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
-    path("inbox/", include("a_inbox.urls")),
     path("", home_view, name="home"),
     path("category/<str:tag>", home_view, name="category"),
     path("post/create/", post_create_view, name="post-create"),
@@ -18,7 +17,6 @@ urlpatterns = [
     path("post/edit/<str:pk>", post_edit_view, name="post-edit"),
     path("post/<str:pk>", post_page_view, name="post"),
     path("profile/", profile_view, name="profile"),
-    path("<str:username>/", profile_view, name="userprofile"),
     path("profile/edit/", profile_edit_view, name="profile-edit"),
     path("profile/delete/", profile_delete_view, name="profile-delete"),
     path("profile/onboarding/", profile_edit_view, name="profile-onboarding"),
@@ -30,6 +28,9 @@ urlpatterns = [
     path("post/like/<str:pk>", like_post, name="like-post"),
     path("comment/like/<str:pk>", like_comment, name="like-comment"),
     path("reply/like/<str:pk>", like_reply, name="like-reply"),
+    path("inbox/", include("a_inbox.urls")),
+    path("_/", include("a_landingpages.urls")),
+    path("<str:username>/", profile_view, name="userprofile"),
 ]
 
 urlpatterns += url_static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
