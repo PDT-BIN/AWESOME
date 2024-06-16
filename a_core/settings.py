@@ -7,6 +7,11 @@ Env.read_env()
 
 ENVIRONMENT = env("ENVIRONMENT", default="production")
 
+# FEATURE TOGGLE.
+DEVELOPER = env("DEVELOPER", default="")
+
+STAGING = env("STAGING", default="False")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -49,6 +54,7 @@ INSTALLED_APPS = [
     "a_posts.apps.APostsConfig",
     "a_users.apps.AUsersConfig",
     "a_inbox.apps.AInboxConfig",
+    "a_features.apps.AFeaturesConfig",
     # ALL-AUTH.
     "django.contrib.sites",
     "allauth",

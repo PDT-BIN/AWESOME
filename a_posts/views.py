@@ -9,6 +9,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import *
 from .models import *
+from a_features.views import feature_enabled
 
 
 def home_view(request, tag: str = None):
@@ -26,7 +27,17 @@ def home_view(request, tag: str = None):
     except:
         return HttpResponse("")
 
-    context = {"posts": posts, "tag": tag, "page": page}
+    try:
+        feature_herobutton = feature_enabled(1, "BIN_BIN")
+    except:
+        feature_herobutton = False
+
+    context = {
+        "posts": posts,
+        "tag": tag,
+        "page": page,
+        "feature_herobutton": feature_herobutton,
+    }
 
     if request.htmx:
         return render(request, "snippets/loop_home_posts.html", context)
