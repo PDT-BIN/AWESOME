@@ -883,6 +883,10 @@ video {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
 .grid {
   display: grid;
 }
@@ -1821,20 +1825,20 @@ p {
   margin-bottom: 1rem;
 }
 
-form p {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
+/* form p {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+} */
 
 label,
 input {
   display: inline-block;
 }
 
-form p label {
-  width: 7rem;
-}
+/* form p label {
+	width: 7rem;
+} */
 
 label {
   margin: 6px 0 3px;
@@ -1999,6 +2003,52 @@ input {
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 1.5;
+}
+
+/* ALLAUTH CUSTOM */
+
+.allauth .helptext {
+  margin-top: 1rem;
+  display: block;
+  text-align: right;
+}
+
+.allauth .card a {
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+}
+
+.allauth .card h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.allauth .card h1 + p {
+  font-style: italic;
+}
+
+.allauth .card button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 175px;
+  text-transform: uppercase;
+}
+
+.allauth form[action="/accounts/signup/"] ul {
+  display: none;
+}
+
+.allauth form[action="/accounts/signup/"] ul.errorlist {
+  display: block;
+}
+
+.allauth label[for="id_password2"] {
+  display: none;
+}
+
+.allauth input#id_password2 {
+  margin-bottom: 1rem;
 }
 
 .hover\:scale-95:hover {

@@ -132,20 +132,20 @@ p {
 	margin-bottom: 1rem;
 }
 
-form p {
+/* form p {
 	display: flex;
 	align-items: center;
 	margin-bottom: 1rem;
-}
+} */
 
 label,
 input {
 	display: inline-block;
 }
 
-form p label {
+/* form p label {
 	width: 7rem;
-}
+} */
 
 label {
 	margin: 6px 0 3px;
@@ -296,4 +296,42 @@ input {
 
 #profile article p {
 	@apply truncate leading-normal;
+}
+
+/* ALLAUTH CUSTOM */
+
+.allauth .helptext {
+	@apply block mt-4 text-right;
+}
+
+.allauth .card a {
+	@apply underline underline-offset-2;
+}
+
+.allauth .card h1 {
+	@apply text-center uppercase;
+}
+
+.allauth .card h1 + p {
+	@apply italic;
+}
+
+.allauth .card button {
+	@apply w-[175px] block mx-auto uppercase;
+}
+
+.allauth form[action="/accounts/signup/"] ul {
+	@apply hidden;
+}
+
+.allauth form[action="/accounts/signup/"] ul.errorlist {
+	@apply block;
+}
+
+.allauth label[for="id_password2"] {
+	@apply hidden;
+}
+
+.allauth input#id_password2 {
+	@apply mb-4;
 }

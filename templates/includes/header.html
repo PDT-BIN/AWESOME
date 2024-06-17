@@ -96,7 +96,7 @@
 			</li>
 			{% else %}
 			<li><a href="{% url 'account_login' %}">LOG IN</a></li>
-			<li><a href="{% url 'account_signup' %}">SIGN UP</a></li>
+			<li><a href="{% url 'account_signup' %}?next={% url 'profile-onboarding' %}">SIGN UP</a></li>
 			{% endif %}
 		</ul>
 	</nav>
