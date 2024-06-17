@@ -2,11 +2,32 @@ from django.conf import settings
 from django.conf.urls.static import static as url_static
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic.base import TemplateView
 
 from a_posts.views import *
 from a_users.views import *
 
+# SITEMAP.
+from django.contrib.sitemaps.views import sitemap
+from a_posts.sitemaps import *
+
+sitemaps = {
+    "static": StaticSitemap,
+    "categories": CategorySitemap,
+    "postpages": PostpageSitemap,
+}
+
 urlpatterns = [
+    path(
+        "sitemap.xml/",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
+    path(
+        "robots.txt/",
+        TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
+    ),
     path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
     path("theboss/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
