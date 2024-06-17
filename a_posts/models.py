@@ -56,7 +56,7 @@ class Tag(models.Model):
         ordering = ["order"]
 
     def get_absolute_url(self):
-        return f"/category/{self.slug}/"
+        return f"/category/{self.slug}"
 
 
 class Comment(models.Model):
